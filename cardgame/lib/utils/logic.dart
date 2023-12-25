@@ -1,5 +1,5 @@
 class Game{
-  final String hiddenCardpath = 'assets/tanda.jpg';
+  final String hiddenCardpath = 'assets/logo_colorfull.jpg';
   List<String>? gameImg;
 
   // make card list
@@ -12,9 +12,13 @@ class Game{
     "assets/hexagon.jpg",
     "assets/triangle.jpg",
     "assets/triangle.jpg",
+    "assets/hexagon.jpg",
+    "assets/hexagon.jpg",
+    "assets/rectangle.jpg",
+    "assets/rectangle.jpg",
   ];
 
-  final int cardCount = 8;
+  final int cardCount = 12;
   List<Map<int, String>> matchCheck = [];
 
   void initGame(){
