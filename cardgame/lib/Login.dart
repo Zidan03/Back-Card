@@ -21,7 +21,6 @@ class _LoginPageState extends State<LoginPage> {
     _passwordController.dispose();
     super.dispose();
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -92,6 +91,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 SizedBox(height: 20),
                 Obx(() {
+                  
                   return Container(
                     width: double.infinity, // Set width to maximum
                     child: ElevatedButton(

@@ -1,11 +1,10 @@
+import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:cardgame/utils/logic.dart';
 import 'package:cardgame/widgets/score_board.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import 'controllers/auth_controllers.dart';
 
 Future<void> main() async {
@@ -28,10 +27,22 @@ class _gamestate extends State<game> {
   List<bool> isCardPressed = List.filled(16, false);
   final AuthController _authController = Get.put(AuthController());
 
+  
+  final AssetsAudioPlayer _audioPlayer = AssetsAudioPlayer();
+
   @override
   void initState() {
     super.initState();
+    _playLocal();
     _game.initGame();
+  }
+
+  Future<void> _playLocal() async {
+    _audioPlayer.open(
+      Audio('assets/sound/sound.mp3'),
+      autoStart: true,
+      loopMode: LoopMode.single, // Adjust loop mode as needed
+    );
   }
 
   void resetGame() {
@@ -42,6 +53,13 @@ class _gamestate extends State<game> {
       _game.initGame();
       isCardPressed = List.filled(16, false);
     });
+  }
+
+  @override
+  void dispose() {
+    // Dispose the audio player when the widget is disposed
+    _audioPlayer.dispose();
+    super.dispose();
   }
 
   late double screen_width;

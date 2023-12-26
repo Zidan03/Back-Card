@@ -41,6 +41,8 @@ dependencies:
   get: 4.6.6
   shared_preferences: ^2.2.0
   google_fonts:
+  # audioplayers: ^5.2.1
+  assets_audio_player: ^3.1.1
 
 dev_dependencies:
   flutter_test:
@@ -64,6 +66,7 @@ flutter:
     - assets/triangle.jpg
     - assets/tanda.jpg
     - assets/
+    - assets/sound/sound.mp3
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
